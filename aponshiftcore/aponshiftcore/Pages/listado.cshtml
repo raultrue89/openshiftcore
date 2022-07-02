@@ -1,0 +1,91 @@
+﻿@page
+@model aponshiftcore.Pages.listadoModel
+
+@{
+    ViewData["Title"] = "listado";
+    Layout = "~/Pages/Shared/_Panel.cshtml";
+}
+
+<h1>listado</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Telefono2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Calle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Colonia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Municipio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Pais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente[0].Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cliente) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Colonia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Municipio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,158 @@
+﻿@page
+@model aponshiftcore.Pages.ClientesModel
+
+@{
+    ViewData["Title"] = "Clientes";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Clientes</h1>
+
+<h4>Cliente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">    
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label asp-for="Cliente.Nombre" class="control-label"></label>
+                    <input asp-for="Cliente.Nombre" class="form-control" />
+                    <span asp-validation-for="Cliente.Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Cliente.Apellidos" class="control-label"></label>
+                    <input asp-for="Cliente.Apellidos" class="form-control" />
+                    <span asp-validation-for="Cliente.Apellidos" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Cliente.Telefono" class="control-label"></label>
+                    <input asp-for="Cliente.Telefono" class="form-control" />
+                    <span asp-validation-for="Cliente.Telefono" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Cliente.Telefono2" class="control-label"></label>
+                    <input asp-for="Cliente.Telefono2" class="form-control" />
+                    <span asp-validation-for="Cliente.Telefono2" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Cliente.Calle" class="control-label"></label>
+                    <input asp-for="Cliente.Calle" class="form-control" />
+                    <span asp-validation-for="Cliente.Calle" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Cliente.Numero" class="control-label"></label>
+                    <input asp-for="Cliente.Numero" class="form-control" />
+                    <span asp-validation-for="Cliente.Numero" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Cliente.Colonia" class="control-label"></label>
+                    <input asp-for="Cliente.Colonia" class="form-control" />
+                    <span asp-validation-for="Cliente.Colonia" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Cliente.Municipio" class="control-label"></label>
+                    <input asp-for="Cliente.Municipio" class="form-control" />
+                    <span asp-validation-for="Cliente.Municipio" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Cliente.Pais" class="control-label"></label>
+                    <input asp-for="Cliente.Pais" class="form-control" />
+                    <span asp-validation-for="Cliente.Pais" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Cliente.Estado" class="control-label"></label>
+                    <input asp-for="Cliente.Estado" class="form-control" />
+                    <span asp-validation-for="Cliente.Estado" class="text-danger"></span>
+                </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Agregar" class="btn btn-outline-success" />
+                </div>
+        </form>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes[0].Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes[0].Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes[0].Telefono2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes[0].Calle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes[0].Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes[0].Colonia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes[0].Municipio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes[0].Pais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes[0].Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Clientes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellidos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Colonia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Municipio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pais)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
